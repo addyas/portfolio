@@ -5,7 +5,6 @@ import colorJSON from '../data/discrete_colors.json'
 const Intro = () => {
 
     let colors = [...colorJSON];
-    console.log(colors);
 
     useEffect( () => {
         anime({
@@ -27,17 +26,17 @@ const Intro = () => {
 
     const createEl = (color) => {
         
-        let el = <div className={"boxes"} style={{backgroundColor: color["hex"]}}></div>
+        let el = <div key={color["hex"]} className={"boxes"} style={{backgroundColor: color["hex"]}}></div>
         return el;
     }
 
 
     return (
       <div className={"background"}>
-      <div style={{height: "80vh", width: "100vh"}} className="box-of-boxes"> 
+      <div style={{height: "80vh", width: "100%"}} className="box-of-boxes"> 
           {colors.map(createEl)}
       </div>
-      <div className={"heading"}  style={{height: "20vh", width: "100vh"}}>
+      <div className={"heading"}  style={{height: "20vh", width: "100%"}}>
         <h1>A Dyas</h1>
       </div>
       </div>
